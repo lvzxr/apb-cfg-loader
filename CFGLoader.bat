@@ -60,6 +60,7 @@ set "GameDir"=""
 goto Beginning
 
 
+
 :Header
 cls
 color 0F
@@ -124,7 +125,6 @@ if "%SFDCO%"=="2" ( call :Header
 xcopy GCOff\DCOn "%GameDir%"\ /s /e /y /q
 goto Steam)
 
-
 :Edit
 call :Header
 echo Disk Cache Choice
@@ -177,7 +177,6 @@ call :Header
 xcopy Localization\Colours\Green_Red "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
 timeout 1
 goto Localisation
-
 
 :LocGW
 call :Header
