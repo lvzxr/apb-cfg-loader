@@ -366,7 +366,6 @@ echo 1: Graphics
 echo 2: Ragdolls (Muzzle flash under this option)
 echo 3: Keybinds
 echo 4: Transparent UI
-echo 5: Toggle UI elements
 echo M: Main Menu
 echo.
 set /p Config=Select Option: 
@@ -375,7 +374,6 @@ if "%Config%"=="1" goto Graphics
 if "%Config%"=="2" goto Ragdolls
 if "%Config%"=="3" goto Keybinds
 if "%Config%"=="4" goto UI
-if "%Config%"=="5" goto UICustomisation
 if /i "%Config%"=="M" goto Menu
 
 color 04
@@ -543,159 +541,6 @@ call :Header
 xcopy TransparentUI "%GameDir%"\APBGame\Config /s /e /y /q
 timeout 1
 goto Customisation
-
-
-
-:UICustomisation
-@echo off
-setlocal EnableDelayedExpansion
-
-set "UI_CFG_1=GCOff\DCOff\APBGame\Config\DefaultEngine.ini"
-set "UI_CFG_2=GCOff\DCOn\APBGame\Config\DefaultEngine.ini"
-set "UI_CFG_3=GCOn\DCOff\APBGame\Config\DefaultEngine.ini"
-set "UI_CFG_4=GCOn\DCOn\APBGame\Config\DefaultEngine.ini"
-set "USER_DIR=%~dp0User"
-if not exist "%USER_DIR%" mkdir "%USER_DIR%"
-
-set "PRESET_FILE=%USER_DIR%\UI.preset"
-
-set "item[1]=Crosshair|cUIDataStore_HUD_Reticule"
-set "item[2]=Weapon Info|cUIDataStore_HUD_WeaponInfo"
-set "item[3]=Character List (Top Left)|cUIDataStore_HUD_Group"
-set "item[4]=Killfeed|cUIDataStore_HUD_ActionMessage"
-set "item[5]=Radial Hit Markers|cUIDataStore_HUD_HitIndicators"
-set "item[6]=Health Indication|cUIDataStore_HUD_Health"
-set "item[7]=Progress Circle (Obj/Resupply)|cUIDataStore_HUD_CSAProgressBars"
-set "item[8]=Radar|cUIDataStore_HUD_Radar"
-set "item[9]=Player Mods/Consumables|cUIDataStore_HUD_Usables"
-set "item[10]=Cash (Top Right)|cUIDataStore_HUD_Cash"
-set "item[11]=Popups (Bounty/Medals)|cUIDataStore_HUD_Ceremony"
-set "item[12]=Combat Msgs (Kill/Stun/Obj)|cUIDataStore_HUD_CombatMsgs"
-set "item[13]=Cargo/Grenade Count|cUIDataStore_HUD_Cargo"
-set "item[14]=Clock (Bottom Right)|cUIDataStore_HUD_Clock"
-set "item[15]=Contact Progression|cUIDataStore_HUD_Contact"
-set "item[16]=Notoriety/Prestige Meter|cUIDataStore_HUD_Heat"
-set "item[17]=Tutorial|cUIDataStore_HUD_Tutorial"
-set "item[18]=Dirty Money|cUIDataStore_HUD_OpenWorld"
-set "item[19]=Fight Club Challenges|cUIDataStore_HUD_Challenges"
-set "item[20]=Daily Activities|cUIDataStore_HUD_DailyActivities"
-set "item[21]=Minigame (Top Middle)|cUIDataStore_HUD_Minigame"
-set "item[22]=Rank/Weapon Icons|cUIDataStore_APBImages"
-
-set "MAX_ITEMS=22"
-
-call :LoadUIP
-
-:UILoop
-cls
-call :Header
-
-for /L %%i in (1,1,%MAX_ITEMS%) do (
-    for /f "tokens=1,2 delims=|" %%a in ("!item[%%i]!") do (
-        set "status=[DISABLED]"
-        if "!state[%%i]!"=="1" set "status=[ENABLED] "
-        
-        if %%i LSS 10 (set "pad= ") else (set "pad=")
-        echo   !pad![%%i]   !status!  %%a
-    )
-)
-
-echo.
-echo S: Save Preset
-echo A: Apply To Config
-echo M: Menu
-set /p UIChoice=Select Option: 
-
-if /i "%UIChoice%"=="S" goto SaveUIP
-if /i "%UIChoice%"=="A" goto ApplyUI
-if /i "%UIChoice%"=="M" goto Menu
-
-if %UIChoice% GEQ 1 if %UIChoice% LEQ %MAX_ITEMS% (
-    call :ToggleItem %UIChoice%
-    goto :UILoop
-)
-
-color 04
-echo.
-echo Invalid Option
-pause
-cls
-goto :UILoop
-
-
-:ToggleItem
-set "idx=%1"
-if "!state[%idx%]!"=="1" (
-    set "state[%idx%]=0"
-) else (
-    set "state[%idx%]=1"
-)
-exit /b
-
-:LoadUIP
-for /L %%i in (1,1,%MAX_ITEMS%) do set "state[%%i]=1"
-
-if exist "%PRESET_FILE%" (
-    for /f "usebackq tokens=1,2 delims==" %%a in ("%PRESET_FILE%") do (
-        set "state[%%a]=%%b"
-    )
-    echo Preset applied successfully.
-    exit /b 0
-) else (
-    echo No preset found at %PRESET_FILE%
-    exit /b 1
-)
-
-:SaveUIP
-(
-    for /L %%i in (1,1,%MAX_ITEMS%) do (
-        echo %%i=!state[%%i]!
-    )
-) > "%PRESET_FILE%"
-echo.
-echo Preset saved to:
-echo %PRESET_FILE%
-timeout 3 
-goto :UILoop
-
-:ApplyUI
-cls
-
-for %%F in (1 2 3 4) do (
-    set "CURRENT_CFG=!UI_CFG_%%F!"
-    call :Header
-    echo Processing File %%F...
-    echo Path: !CURRENT_CFG!
-
-    if not exist "!CURRENT_CFG!" (
-        echo File %%F not found!
-        echo.
-    ) else (
-        set "PS_SCRIPT=%TEMP%\APB_UI_Patch_%%F.ps1"
-
-        echo $file = '!CURRENT_CFG!' > "!PS_SCRIPT!"
-        echo $content = Get-Content -Path $file >> "!PS_SCRIPT!"
-
-        for /L %%i in (1,1,%MAX_ITEMS%) do (
-            for /f "tokens=1,2 delims=|" %%a in ("!item[%%i]!") do (
-                if "!state[%%i]!"=="1" (
-                    echo $content = $content -replace '^\s*;*\+GlobalDataStoreClasses="APBUserInterface.%%b"', '+GlobalDataStoreClasses="APBUserInterface.%%b"' >> "!PS_SCRIPT!"
-                ) else (
-                    echo $content = $content -replace '^\s*;*\+GlobalDataStoreClasses="APBUserInterface.%%b"', ';+GlobalDataStoreClasses="APBUserInterface.%%b"' >> "!PS_SCRIPT!"
-                )
-            )
-        )
-
-        echo Set-Content -Path $file -Value $content >> "!PS_SCRIPT!"
-        powershell -ExecutionPolicy Bypass -File "!PS_SCRIPT!" >nul
-        del "!PS_SCRIPT!"
-    )
-)
-
-echo.
-echo UI settings applied
-timeout 3
-goto :Menu
 
 
 
