@@ -11,7 +11,6 @@ Everything within this config is typically kept up to date with what LO will all
 > If anything were to happen to your account due to use of modifed game files that is not my responsibility, you can contact Little Orbit support at **support@littleorbit.com**
 
 # Install
-
 Extract the archive you download from here to a folder somewhere on your PC. Run the batch script and provide it with your APB install location once that's done you can go through the options and select what you'd like to use.
 
 >[!NOTE]
@@ -33,14 +32,12 @@ Extract the archive you download from here to a folder somewhere on your PC. Run
 > If you find yourself frozen on the respawn screen for an extended period of time and either your team or the enemy progresses to the next stage of a mission you will not be able to see the new objective(s) when you respawn. This can also cause you to have ghost respawn circles appear on the map that when clicked do nothing. These bugs have no fixes without re-enabling garbage collection.
 
 # Command Changes (If using localization)
-
 - /exit -> /rq
 - /dance variants -> /urban /michael /techno etc.
 - /strikeapose1/2 -> /pose1 /pose2
 - /groupinvitemodedefault -> /gimd (Run /gimd true on all characters when not in a group to set group invites to everyone.)
 
 # Graphics
-
 > [!NOTE]
 > Shadows should work on all presets, if you want them just enable it under advanced graphics in-game after selecting the preset you like. If it doesn't work however, go into `APBMachineOptions` and remove the `DynamicShadows` and `LightEnvironmentShadows` lines, save, restart the game then re-enable shadows again.
 
@@ -51,7 +48,6 @@ Extract the archive you download from here to a folder somewhere on your PC. Run
 > When switching between clay vehicles and standard your game may crash therefore I recommend you do this on the login screen and then reboot.
 
 ### Mixed (Recommended for most people)
-
 - MINIMAL	- Low Env, High Character, High Car, High Weapon, Mid Prop, Mid VFX
 - LOW 		- Same as minimal just low poly characters
 - MEDIUM 	- Mid Env, High Character, High Car, High Weapon, Mid Prop, Mid VFX
@@ -59,7 +55,6 @@ Extract the archive you download from here to a folder somewhere on your PC. Run
 - MAXIMUM 	- High Env, High Character, High Car, High Weapon, High Prop, High VFX
 
 ### High
-
 - MINIMAL	- Mid Env, High Character, High Car, High Weapon, Mid Prop, Mid VFX
 - LOW 		- Same as minimal just low poly characters
 - MEDIUM 	- High Env, High Character, High Car, High Weapon, High Prop, High VFX
@@ -67,7 +62,6 @@ Extract the archive you download from here to a folder somewhere on your PC. Run
 - MAXIMUM 	- Same as medium but with further LOD ranges
 
 ### Low
-
 - MINIMAL	- Low Env, High Character, High Car, High Weapon, Mid Prop, Mid VFX
 - LOW 		- Same as minimal just low poly characters
 - MEDIUM 	- Low Env, High Character, Clay Car, Low Weapon, Low Prop, Mid VFX
@@ -91,6 +85,15 @@ All of the binds listed below are there as additions to the original keybinds so
    - Camera    | Camera look up/down - Extremely fast but there if you really need it
 
 *Default Xbox controller related keybinds are removed with this file*
+
+# Manual Install
+- Graphics: Place **APBCompat.ini** in **APBGame/Config**
+- Keybinds: Place **APBGame** in the root **APB Reloaded** folder
+- Localization: Place any **.GER** files within **APBGame/Localization/GER**, if the **GER** folder doesn't exist within **Localization** then you can just create it
+- Ragdolls: (None = All ragdolls disabled | NoNPC = NPC ragdolls disabled, player ragdolls enabled | Norm = Player + NPC ragdolls enabled | MF = Muzzle flash on/off) Place **DefaultGame** in **APBGame/Config**
+- Transparent UI: Place **DefaultUI** in **APBGame/Config**
+- GCOff: (DC = Disk Cache. Off is preferred but if you have 16GB of RAM or less always use On) Place **APBGame** and **Engine** in the root **APB Reloaded** folder
+- GCOn: (DC = Disk Cache. Off is preferred but if you have 16GB of RAM or less always use On) Place **APBGame** and **Engine** in the root **APB Reloaded** folder
 
 # Remove / Uninstall
 
