@@ -87,13 +87,13 @@ All of the binds listed below are there as additions to the original keybinds so
 *Default Xbox controller related keybinds are removed with this file*
 
 # Manual Install
-- Graphics: Place **APBCompat.ini** in **APBGame/Config**
-- Keybinds: Place **APBGame** in the root **APB Reloaded** folder
-- Localization: Place any **.GER** files within **APBGame/Localization/GER**, if the **GER** folder doesn't exist within **Localization** then you can just create it
-- Ragdolls: (None = All ragdolls disabled | NoNPC = NPC ragdolls disabled, player ragdolls enabled | Norm = Player + NPC ragdolls enabled | MF = Muzzle flash on/off) Place **DefaultGame** in **APBGame/Config**
-- Transparent UI: Place **DefaultUI** in **APBGame/Config**
-- GCOff: (DC = Disk Cache. Off is preferred but if you have 16GB of RAM or less always use On) Place **APBGame** and **Engine** in the root **APB Reloaded** folder
-- GCOn: (DC = Disk Cache. Off is preferred but if you have 16GB of RAM or less always use On) Place **APBGame** and **Engine** in the root **APB Reloaded** folder
+- Graphics: Place `APBCompat.ini` in `APBGame/Config`
+- Keybinds: Place `APBGame` in the root `APB Reloaded` folder
+- Localization: Place any `.GER` files within `APBGame/Localization/GER`, if the `GER` folder doesn't exist within `Localization` then you can just create it
+- Ragdolls: (None = All ragdolls disabled | NoNPC = NPC ragdolls disabled, player ragdolls enabled | Norm = Player + NPC ragdolls enabled | MF = Muzzle flash on/off) Place `DefaultGame` in `APBGame/Config`
+- Transparent UI: Place `DefaultUI` in `APBGame/Config`
+- GCOff: (DC = Disk Cache. Off is preferred but if you have 16GB of RAM or less always use On) Place `APBGame` and `Engine` in the root `APB Reloaded` folder
+- GCOn: (DC = Disk Cache. Off is preferred but if you have 16GB of RAM or less always use On) Place `APBGame` and `Engine` in the root `APB Reloaded` folder
 
 # Remove / Uninstall
 
