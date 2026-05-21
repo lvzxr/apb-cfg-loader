@@ -117,6 +117,4 @@ All of the binds listed below are there as additions to the original keybinds so
 
 ### [myamai APB Localization Resources](https://myamai.neocities.org/apb/localization)
 
-### [CLauncher](https://www.clauncher.io/)
-
 ### [APB Beginner's Guide by Flaws](https://steamcommunity.com/sharedfiles/filedetails/?id=1445306227)
