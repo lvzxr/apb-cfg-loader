@@ -107,6 +107,7 @@ All of the binds listed below are there as additions to the original keybinds so
 - Esurient :robot: - Engine related changes
 - Leefekyn :sunglasses: - Alt mission titles
 - mewpri :alien: - Studio keybinds / Vehicle+Weapon stats
+- writch :rabbit: - Updating Vehicle+Weapon stats
 - jmilos :japanese_goblin: - Combat / Vehicle keybinds
 - myamai :space_invader: - Creating localization resources
 - AltShadow :fox_face: - Weapon icons in UI elements
@@ -116,7 +117,5 @@ All of the binds listed below are there as additions to the original keybinds so
 ### [xaizone APB Config](https://github.com/xaizone/apb-reloaded)
 
 ### [myamai APB Localization Resources](https://myamai.neocities.org/apb/localization)
-
-### [CLauncher](https://www.clauncher.io/)
 
 ### [APB Beginner's Guide by Flaws](https://steamcommunity.com/sharedfiles/filedetails/?id=1445306227)
