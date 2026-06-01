@@ -107,14 +107,14 @@ All of the binds listed below are there as additions to the original keybinds so
 - Esurient :robot: - Engine related changes
 - Leefekyn :sunglasses: - Alt mission titles
 - mewpri :alien: - Studio keybinds / Vehicle+Weapon stats
-- writch :rabbit: - Updating Vehicle+Weapon stats
+- writch :rabbit: - Updating Vehicle+Weapon stats / APB Gallery
 - jmilos :japanese_goblin: - Combat / Vehicle keybinds
 - myamai :space_invader: - Creating localization resources
 - AltShadow :fox_face: - Weapon icons in UI elements
 
 ### [Flaws APB Config](https://github.com/flawsv/apb)
 
-### [xaizone APB Config](https://github.com/xaizone/apb-reloaded)
+### [APB Gallery](https://apb.gallery/config)
 
 ### [myamai APB Localization Resources](https://myamai.neocities.org/apb/localization)
 
