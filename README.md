@@ -106,7 +106,7 @@ All of the binds listed below are there as additions to the original keybinds so
 - rooq :skull: - Mission descriptions
 - Esurient :robot: - Engine related changes
 - Leefekyn :sunglasses: - Alt mission titles
-- mewpri :alien: - Studio keybinds / Vehicle+Weapon stats
+- mewpri :alien: - Studio keybinds / Older Vehicle+Weapon stats
 - writch :rabbit: - Updating Vehicle+Weapon stats / APB Gallery
 - jmilos :japanese_goblin: - Combat / Vehicle keybinds
 - myamai :space_invader: - Creating localization resources
@@ -114,7 +114,9 @@ All of the binds listed below are there as additions to the original keybinds so
 
 ### [Flaws APB Config](https://github.com/flawsv/apb)
 
-### [APB Gallery](https://apb.gallery/config)
+### [APB Gallery](https://apb.gallery/)
+
+### [APB:DB](https://apbdb.com/)
 
 ### [myamai APB Localization Resources](https://myamai.neocities.org/apb/localization)
 
