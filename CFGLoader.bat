@@ -239,7 +239,8 @@ echo 2: Mission Titles (Equipment)
 echo 3: Shortened Chat Categories
 echo 4: Vehicle Stats
 echo 5: Weapon Stats
-echo 6: Default Objectives
+echo 6: Player Role Rewards
+echo 7: Restore Objective Second Line
 echo M: Main Menu
 echo.
 set /p LocAdd=Select Option: 
@@ -250,6 +251,7 @@ if "%LocAdd%"=="3" goto LocAddon3
 if "%LocAdd%"=="4" goto LocAddon4
 if "%LocAdd%"=="5" goto LocAddon5
 if "%LocAdd%"=="6" goto LocAddon6
+if "%LocAdd%"=="7" goto LocAddon7
 if /i "%LocAdd%"=="M" goto Menu
 
 color 04
@@ -352,6 +354,11 @@ xcopy Localization\Addons\Weapon_Stats "%GameDir%"\APBGame\Localization\GER\ /s 
 timeout 1
 goto LocAddons
 :LocAddon6
+call :Header
+xcopy Localization\Addons\Player_Roles "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
+timeout 1
+goto LocAddons
+:LocAddon7
 call :Header
 xcopy Localization\Addons\Default_Objective "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
 timeout 1
