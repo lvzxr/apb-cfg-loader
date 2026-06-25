@@ -1,11 +1,11 @@
 # APB Reloaded Config Loader
-This is a simple batch script, similar to something TobiiDK had back in the day for selecting your config options. I will have this alongside my normal config, this should just make a bit easier for those that don't fully understand what they're doing and where they should be putting files.
+This is a simple batch script, similar to something TobiiDK had back in the day for selecting your config options.
 
 > [!IMPORTANT]
-> This config loader not compatible with my config that you have to manually install, nor is it compatible with anyone elses config so do not try to utilise it for anything other than what this loader comes with.
+> This config loader is not compatible with anyone elses config so do not try to utilise it for anything other than what this loader comes with unless you know what you're doing and are willing to modify it to function with others yourself.
 
 # Initial
-Everything within this config is typically kept up to date with what LO will allow/disallow when it comes to modifying files so when I provide an update it's always recommended to download it and ensure you're up to date, older versions whilst still available shouldn't be used unless you know what you want out of them is allowed.
+Everything within this config is typically kept up to date with what LO will allow/disallow when it comes to modifying files so when I provide an update it's always recommended to download it and ensure you're on the latest version, older versions whilst still available shouldn't be used unless you know what you want out of them is allowed.
 
 > [!IMPORTANT]
 > If anything were to happen to your account due to use of modifed game files that is not my responsibility, you can contact Little Orbit support at **support@littleorbit.com**
@@ -13,7 +13,7 @@ Everything within this config is typically kept up to date with what LO will all
 # Install
 Extract the archive you download from here to a folder somewhere on your PC. Run the batch script and provide it with your APB install location once that's done you can go through the options and select what you'd like to use.
 
->[!NOTE]
+>[!IMPORTANT]
 > It will warn you if your game is installed in Windows directories such as `Program Files (x86)` it can work, however some may run into issues so it's recommended to have APB installed in a different location e.g `Documents`.
 > When the game updates you will have to reapply most of the config as the launcher overwrites modifications to most of the files, if something major changes it's recommended to also run the ***Repair*** option within the launcher to ensure all files are up to date.
 
@@ -39,32 +39,32 @@ Extract the archive you download from here to a folder somewhere on your PC. Run
 
 # Graphics
 > [!NOTE]
-> Shadows should work on all presets, if you want them just enable it under advanced graphics in-game after selecting the preset you like. If it doesn't work however, go into `APBMachineOptions` and remove the `DynamicShadows` and `LightEnvironmentShadows` lines, save, restart the game then re-enable shadows again.
+> Shadows should work on all presets, if you want them just enable it under advanced graphics in-game after selecting the preset you like. If it doesn't work however, go into `APBGame/Config/APBMachineOptions` and remove the `DynamicShadows` and `LightEnvironmentShadows` lines, save, restart the game then re-enable shadows again.
 
 > [!NOTE]
-> If you wish to remove bullet holes, in `APBCompat` set  `ParticleMaxWorldSpaceArea` to a value of `0.1` and so that the nade trails aren't almost invisible ensure that `TEXCAT_VFX Usage 0 and 1` have their `MaxLODSize` set to `16` and their `LODBias` set to `4`. **You cannot see vehicle fire with ParticleMaxWorldSpaceArea set this way**
+> If you wish to remove bullet holes, in `APBGame/Config/APBCompat` set  `ParticleMaxWorldSpaceArea` to a value of `0.1` and so that the nade trails aren't almost invisible ensure that `TEXCAT_VFX Usage 0 and 1` have their `MaxLODSize` set to `16` and their `LODBias` set to `4`. **You cannot see vehicle fire with ParticleMaxWorldSpaceArea set this way**
 
 > [!IMPORTANT]
 > When switching between clay vehicles and standard your game may crash therefore I recommend you do this on the login screen and then reboot.
 
-### Mixed (Recommended for most people)
-- MINIMAL	- Low Env, High Character, High Car, High Weapon, Mid Prop, Mid VFX
+### Mixed (Recommended for the majority of players)
+- MINIMAL	- Low Env, High Character, High Car, High Weapon, Med Prop, Med VFX
 - LOW 		- Same as minimal just low poly characters
-- MEDIUM 	- Mid Env, High Character, High Car, High Weapon, Mid Prop, Mid VFX
+- MEDIUM 	- Med Env, High Character, High Car, High Weapon, Med Prop, Med VFX
 - HIGH 		- Same as medium just low poly characters
 - MAXIMUM 	- High Env, High Character, High Car, High Weapon, High Prop, High VFX
 
 ### High
-- MINIMAL	- Mid Env, High Character, High Car, High Weapon, Mid Prop, Mid VFX
+- MINIMAL	- Med Env, High Character, High Car, High Weapon, Med Prop, Med VFX
 - LOW 		- Same as minimal just low poly characters
 - MEDIUM 	- High Env, High Character, High Car, High Weapon, High Prop, High VFX
 - HIGH 		- Same as medium just low poly characters
 - MAXIMUM 	- Same as medium but with further LOD ranges
 
 ### Low
-- MINIMAL	- Low Env, High Character, High Car, High Weapon, Mid Prop, Mid VFX
+- MINIMAL	- Low Env, High Character, High Car, High Weapon, Med Prop, Med VFX
 - LOW 		- Same as minimal just low poly characters
-- MEDIUM 	- Low Env, High Character, Clay Car, Low Weapon, Low Prop, Mid VFX
+- MEDIUM 	- Low Env, High Character, Clay Car, Low Weapon, Low Prop, Med VFX
 - HIGH 		- Same as medium just low poly characters
 - MAXIMUM 	- Low Env, LQ Low Poly Character, Clay Car, Low Weapon, Low Prop, Low VFX
 
@@ -85,6 +85,11 @@ All of the binds listed below are there as additions to the original keybinds so
    - Camera    | Camera look up/down - Extremely fast but there if you really need it
 
 *Default Xbox controller related keybinds are removed with this file*
+
+# Transparent UI
+This doesn't fully remove the UI background but does make it far less visible, if you wish to customise the transparency level then you can modify `OverlaySceneAlphaModulation` in `APBGame/Config/DefaultUI`. Values lower than .95 can make the UI far too invisible for gameplay so it's recommended to stay above these values. 
+> [!IMPORTANT]
+> Using transparent UI will make certain UI elements in the some of the editors completely invisible. This mainly applies to selecting colours on tattoo's though if you do hover over the regular locations for the squares you can partially see what you're selecting.
 
 # Manual Install
 - Graphics: Place `APBCompat.ini` in `APBGame/Config`
@@ -115,6 +120,8 @@ All of the binds listed below are there as additions to the original keybinds so
 ### [Flaws APB Config](https://github.com/flawsv/apb)
 
 ### [APB Gallery](https://apb.gallery/)
+
+### [APB Gallery Config Tool](https://apb.gallery/config)
 
 ### [APB:DB](https://apbdb.com/)
 
