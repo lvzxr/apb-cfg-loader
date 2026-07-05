@@ -119,6 +119,8 @@ This doesn't fully remove the UI background but does make it far less visible, i
 
 ### [Flaws APB Config](https://github.com/flawsv/apb)
 
+### [Altshadow Localization](https://github.com/altshadow69/apb-minimized)
+
 ### [APB Gallery](https://apb.gallery/)
 
 ### [APB Gallery Config Tool](https://apb.gallery/config)
