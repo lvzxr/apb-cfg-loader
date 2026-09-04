@@ -21,12 +21,14 @@ Extract the archive you download from here to a folder somewhere on your PC. Run
 - All of the social kiosks e.g clothing, vehicle, character, theme, symbol and vault work fine with these files
 - Disables the texture streaming system forcing whichever graphics you start with to be the maximum you'll see without restarting (on most objects)
 - Gained FPS varies per system
+- DC (Disk Cache) option should be chosen based on how much RAM you have, if you have 16GB or less of system memory you must use DC On, if you have 32GB or more, DC Off
 
 # GC Off Stutter Fix
 - Some of the social kiosks e.g clothing, vehicle and character will not load with these files, the remaining studios, theme, symbol and vault do work however 
 - Disables the texture streaming system forcing whichever graphics you start with to be the maximum you'll see without restarting (on most objects)
 - Gained FPS varies per system
 - You may experience large stutters on the respawn screen after a long time of being alive due to this now being when the garbage dump will happen
+- DC (Disk Cache) option should be chosen based on how much RAM you have, if you have 16GB or less of system memory you must use DC On, if you have 32GB or more, DC Off
 
 > [!IMPORTANT]
 > If you find yourself frozen on the respawn screen for an extended period of time and either your team or the enemy progresses to the next stage of a mission you will not be able to see the new objective(s) when you respawn. This can also cause you to have ghost respawn circles appear on the map that when clicked do nothing. These bugs have no fixes without re-enabling garbage collection.
