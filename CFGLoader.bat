@@ -371,7 +371,7 @@ call :Header
 echo Graphics/Muzzle Flash/Ragdolls/UI
 echo 1: Graphics
 echo 2: Ragdolls (Muzzle flash under this option)
-echo 3: Keybinds
+echo 3: Keybinds (Ensure game is set to run with -language=1031 or keybinds won't appear correctly)
 echo 4: Transparent UI
 echo M: Main Menu
 echo.
