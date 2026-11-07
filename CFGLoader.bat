@@ -88,7 +88,7 @@ exit /b
 call :Header
 echo 1: Stutter Fix (This starts the game if you aren't using shortcuts)
 echo 2: No Stutter Fix (This starts the game if you aren't using shortcuts)
-echo 3: Localisation
+echo 3: Localization
 echo 4: Graphics/Keybinds/UI/Ragdolls/Muzzle Flash
 echo 5: Update APB
 echo D: Change Game Directory
@@ -98,7 +98,7 @@ set /p Menu=Select Option:
 
 if "%Menu%"=="1" goto Main
 if "%Menu%"=="2" goto Edit
-if "%Menu%"=="3" goto Localisation
+if "%Menu%"=="3" goto Localization
 if "%Menu%"=="4" goto Customisation
 if "%Menu%"=="5" goto APBLauncher
 if /i "%Menu%"=="D" goto ResetGameDir
@@ -139,17 +139,14 @@ if "%NSFDCO%"=="2" ( call :Header
 xcopy GCOn\DCOn "%GameDir%"\ /s /e /y /q
 goto Steam)
 
-:Localisation
+:Localization
 call :Header
-echo Choose Localisation
+echo Choose Localization
 echo 1: Dark Blue/Dark Red
 echo 2: Green/Red (APB Default)
 echo 3: Grey/White
-echo 4: Light Pink/White
-echo 5: Hot Pink/White
-echo 6: Purple/White
-echo 7: Addons (apply after colour)
-echo 8: Clear GER (if swapping colour)
+echo 4: Addons (apply after colour)
+echo 5: Clear GER (if swapping colour)
 echo M: Main Menu
 echo.
 set /p Loc=Select Option: 
@@ -157,83 +154,39 @@ set /p Loc=Select Option:
 if "%Loc%"=="1" goto LocDBDR
 if "%Loc%"=="2" goto LocGR
 if "%Loc%"=="3" goto LocGW
-if "%Loc%"=="4" goto LocLPW
-if "%Loc%"=="5" goto LocHPW
-if "%Loc%"=="6" goto LocPW
-if "%Loc%"=="7" goto LocAddons
-if "%Loc%"=="8" ( 
+if "%Loc%"=="4" goto LocAddons
+if "%Loc%"=="5" ( 
 	call :ClearGERLocalization 
-	goto Localisation
+	goto Localization
 )
 if /i "%Loc%"=="M" goto Menu
 
 :LocDBDR
 call :Header
 xcopy Localization\Colours\DarkBlue_DarkRed "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto Localisation
+timeout 2
+goto Localization
 :LocGR
 call :Header
 xcopy Localization\Colours\Green_Red "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto Localisation
-
+timeout 2
+goto Localization
 :LocGW
 call :Header
-echo Include Engine Font?
-echo 1: Yes
-echo 2: No
-echo 3: Go Back
-echo.
-set /p GWEF=Select Option: 
-
-if "%GWEF%"=="1" (
 xcopy Localization\Colours\Grey_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-xcopy Localization\Colours\Grey_White_Engine "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto Localisation )
-
-if "%GWEF%"=="2" (
-xcopy Localization\Colours\Grey_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto Localisation )
-
-if "%GWEF%"=="3" (
-    goto Localisation )
+timeout 2
+goto Localization
 
 color 04
 echo.
 echo Invalid Option
 pause
 cls
-goto LocGW
-
-:LocLPW
-call :Header
-xcopy Localization\Colours\LightPink_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto Localisation
-:LocHPW
-call :Header
-xcopy Localization\Colours\Pink_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto Localisation
-:LocPW
-call :Header
-xcopy Localization\Colours\Purple_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto Localisation
-
-color 04
-echo.
-echo Invalid Option
-pause
-cls
-goto Localisation
+goto Localization
 
 :LocAddons
 call :Header
-echo Choose Localisation Addons
+echo Choose Localization Addons
 echo 1: Coloured Weapons
 echo 2: Mission Titles (Equipment)
 echo 3: Shortened Chat Categories
@@ -264,44 +217,19 @@ goto LocAddons
 :LocAddon1
 call :Header
 xcopy Localization\Addons\Coloured_Weapons "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
+timeout 2
 goto LocAddons
 
 :LocAddon2
 call :Header
-echo Choose Colour
-echo 1: Dark Blue/Dark Red
-echo 2: Green/Red (APB Default)
-echo 3: Grey/White
-echo 4: Light Pink/White
-echo 5: Hot Pink/White
-echo 6: Purple/White
+echo Icons/Text
+echo 1: Icons
+echo 2: Text
 echo.
-set /p FinalStageCol=Select Option: 
+set /p FinalStageTI=Select Option: 
 
-if "%FinalStageCol%"=="1" ( call :Header
-xcopy Localization\Addons\Mission_Titles_Equipment\DarkBlue_DarkRed "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto LocAddons )
-if "%FinalStageCol%"=="2" ( call :Header
-xcopy Localization\Addons\Mission_Titles_Equipment\Green_Red "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto LocAddons )
-
-if "%FinalStageCol%"=="3" goto FSCEF
-
-if "%FinalStageCol%"=="4" ( call :Header
-xcopy Localization\Addons\Mission_Titles_Equipment\LightPink_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto LocAddons )
-if "%FinalStageCol%"=="5" ( call :Header
-xcopy Localization\Addons\Mission_Titles_Equipment\Pink_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto LocAddons )
-if "%FinalStageCol%"=="6" ( call :Header
-xcopy Localization\Addons\Mission_Titles_Equipment\Purple_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto LocAddons )
+if "%FinalStageTI%"=="1" goto FinalStageIcon 
+if "%FinalStageTI%"=="2" goto FinalStageText
 
 color 04
 echo.
@@ -310,58 +238,88 @@ pause
 cls
 goto LocAddon2
 
-:FSCEF
+:FinalStageIcon
 call :Header
-echo Include Engine Font?
-echo 1: Yes
-echo 2: No
-echo 3: Go Back
-set /p FSEFC=Select Option: 
+echo Choose Colour
+echo 1: Dark Blue/Dark Red
+echo 2: Green/Red (APB Default)
+echo 3: Grey/White
+echo.
+set /p FinalStageIconCol=Select Option: 
 
-if "%FSEFC%"=="1" ( call :Header
-xcopy Localization\Addons\Mission_Titles_Equipment\Grey_White_Engine "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
+if "%FinalStageIconCol%"=="1" ( call :Header
+xcopy Localization\Addons\Mission_Titles_Equipicon\DarkBlue_DarkRed "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
+timeout 2
 goto LocAddons )
-
-if "%FSEFC%"=="2" ( call :Header
-xcopy Localization\Addons\Mission_Titles_Equipment\Grey_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
-goto LocAddons  )
-
-if "%FSEFC%"=="3" (
-    goto LocAddon2 )
+if "%FinalStageIconCol%"=="2" ( call :Header
+xcopy Localization\Addons\Mission_Titles_Equipicon\Green_Red "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
+timeout 2
+goto LocAddons )
+if "%FinalStageIconCol%"=="3" ( call :Header
+xcopy Localization\Addons\Mission_Titles_Equipicon\Grey_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
+timeout 2
+goto LocAddons )
 
 color 04
 echo.
 echo Invalid Option
 pause
 cls
-goto FSCEF
+goto FinalStageIcon
+
+:FinalStageText
+call :Header
+echo Choose Colour
+echo 1: Dark Blue/Dark Red
+echo 2: Green/Red (APB Default)
+echo 3: Grey/White
+echo.
+set /p FinalStageCol=Select Option: 
+
+if "%FinalStageCol%"=="1" ( call :Header
+xcopy Localization\Addons\Mission_Titles_Equipment\DarkBlue_DarkRed "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
+timeout 2
+goto LocAddons )
+if "%FinalStageCol%"=="2" ( call :Header
+xcopy Localization\Addons\Mission_Titles_Equipment\Green_Red "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
+timeout 2
+goto LocAddons )
+if "%FinalStageCol%"=="3" ( call :Header
+xcopy Localization\Addons\Mission_Titles_Equipment\Grey_White "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
+timeout 2
+goto LocAddons )
+
+color 04
+echo.
+echo Invalid Option
+pause
+cls
+goto FinalStageText
 
 :LocAddon3
 call :Header
 xcopy Localization\Addons\Short_Chat_Cat "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
+timeout 2
 goto LocAddons
 :LocAddon4
 call :Header
 xcopy Localization\Addons\Vehicle_Stats "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
+timeout 2
 goto LocAddons
 :LocAddon5
 call :Header
 xcopy Localization\Addons\Weapon_Stats "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
+timeout 2
 goto LocAddons
 :LocAddon6
 call :Header
 xcopy Localization\Addons\Player_Roles "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
+timeout 2
 goto LocAddons
 :LocAddon7
 call :Header
 xcopy Localization\Addons\Default_Objective "%GameDir%"\APBGame\Localization\GER\ /s /e /y /q
-timeout 1
+timeout 2
 goto LocAddons
 
 
@@ -415,17 +373,17 @@ goto Graphics
 :MixG
 call :Header
 xcopy Graphics\Mix "%GameDir%"\APBGame\Config\ /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation
 :LowG
 call :Header
 xcopy Graphics\Low "%GameDir%"\APBGame\Config\ /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation
 :HighG
 call :Header
 xcopy Graphics\High "%GameDir%"\APBGame\Config\ /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation
 
 :Ragdolls
@@ -461,12 +419,12 @@ set /p RDMF=Select Option:
 
 if "%RDMF%"=="1" ( call :Header
 xcopy Ragdolls\NormMFOn "%GameDir%"\APBGame\Config /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation )
 
 if "%RDMF%"=="2" ( call :Header
 xcopy Ragdolls\NormMFOff "%GameDir%"\APBGame\Config /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation )
 
 if "%RDMF%"=="3" (
@@ -490,12 +448,12 @@ set /p NNPCRD=Select Option:
 
 if "%NNPCRD%"=="1" ( call :Header
 xcopy Ragdolls\NoNPCMFOn "%GameDir%"\APBGame\Config /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation )
 
 if "%NNPCRD%"=="2" ( call :Header
 xcopy Ragdolls\NoNPCMFOff "%GameDir%"\APBGame\Config /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation )
 
 if "%NNPCRD%"=="3" (
@@ -519,12 +477,12 @@ set /p NRD=Select Option:
 
 if "%NRD%"=="1" ( call :Header
 xcopy Ragdolls\NoneMFOn "%GameDir%"\APBGame\Config /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation )
 
 if "%NRD%"=="2" ( call :Header
 xcopy Ragdolls\NoneMFOff "%GameDir%"\APBGame\Config /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation )
 
 if "%NRD%"=="3" (
@@ -540,13 +498,13 @@ goto NoRagdoll
 :Keybinds
 call :Header
 xcopy Keybinds "%GameDir%"\ /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation
 
 :UI
 call :Header
 xcopy TransparentUI "%GameDir%"\APBGame\Config /s /e /y /q
-timeout 1
+timeout 2
 goto Customisation
 
 
@@ -555,7 +513,7 @@ goto Customisation
 call :Header
 echo Opening APB Launcher
 start "" "%GameDir%\Launcher\APBLauncher.exe"
-timeout 1
+timeout 2
 goto Menu
 
 
