@@ -92,7 +92,7 @@ All of the binds listed below are there as additions to the original keybinds so
 This doesn't fully remove the UI background but does make it far less visible, if you wish to customise the transparency level then you can modify `OverlaySceneAlphaModulation` in `APBGame/Config/DefaultUI`. Values lower than .95 can make the UI far too invisible for gameplay so it's recommended to stay above these values. 
 > [!IMPORTANT]
 > Using transparent UI will make certain UI elements in the some of the editors completely invisible. This mainly applies to selecting colours on tattoo's though if you do hover over the regular locations for the squares you can partially see what you're selecting.
-> 
+
 > [!IMPORTANT]
 > Use of transparent UI can cause issues when utilising configs that apply icons in various parts of the interface, it is recommended to not use this if you wish to ensure those icons will always appear properly.
 
